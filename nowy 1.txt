@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXELGRIP - Gaming Desk Pads</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Quick styling for demonstration */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header nav a:hover {
+            color: #ff9800;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('hero-image.jpg') no-repeat center center/cover;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .btn {
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #ff9800;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background-color: #e68900;
+        }
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #1f1f1f;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PIXELGRIP</h1>
+        <nav>
+            <a href="#home">Strona główna</a>
+            <a href="#about">O nas</a>
+            <a href="#services">Usługi</a>
+            <a href="#contact">Kontakt</a>
+            <a href="#payments">Płatności</a>
+            <a href="#custom">Custom Podkładki</a>
+            <a href="#prebuilt">Gotowe Podkładki</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Witaj w PIXELGRIP</h1>
+        <p>Podkładki gamingowe, jakich jeszcze nie widziałeś!</p>
+        <button class="btn">Zacznij zakupy</button>
+    </section>
+
+    <section class="section" id="about">
+        <h2>O nas</h2>
+        <p>PIXELGRIP to firma stworzona przez pasjonatów gamingu. Naszym celem jest dostarczenie wyjątkowych produktów, które uczynią Twoje biurko niepowtarzalnym miejscem.</p>
+    </section>
+
+    <section class="section" id="services">
+        <h2>Usługi</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Custom Podkładki</h3>
+                <p>Stwórz własną podkładkę - dostosuj grafikę, kolory i rozmiar.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Gotowe Podkładki</h3>
+                <p>Wybierz spośród naszej szerokiej oferty gotowych podkładek.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="custom">
+        <h2>Custom Podkładki</h2>
+        <p>Przeciągnij i upuść swoje zdjęcie, aby zobaczyć, jak będzie wyglądać na Twojej podkładce!</p>
+        <input type="file" id="upload" accept="image/*">
+        <div id="preview" style="margin-top: 20px; border: 2px dashed #ff9800; padding: 20px;">
+            <p>Twój podgląd pojawi się tutaj.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 PIXELGRIP. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        // JavaScript for custom pad preview
+        document.getElementById('upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const preview = document.getElementById('preview');
+                preview.innerHTML = `<img src="${e.target.result}" alt="Preview" style="max-width: 100%; border-radius: 10px;">`;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
